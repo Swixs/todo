@@ -1,13 +1,13 @@
 function TodoList({ todo, setTodo }) {
 
     function deleteTodo(id) {
-        let newTodo = [...todo].filter(item => item.id != id);
+        let newTodo = [...todo].filter(item => item.id !== id);
         setTodo(newTodo)
     }
 
     function statusTodo(id){
         let newTodo = [...todo].filter(item => {
-            if(item.id == id){
+            if(item.id === id){
                 item.status = !item.status
             }
             return item
