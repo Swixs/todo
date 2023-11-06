@@ -1,8 +1,8 @@
-
+import classHeader from './Header.module.css'
 
 function Header() {
     return (
-        <div>
+        <div className={classHeader.root}>
             Header
         </div>
     )
