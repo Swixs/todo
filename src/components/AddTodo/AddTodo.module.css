@@ -1,0 +1,28 @@
+.addTodoForm{
+    display: flex;
+    flex: 1;
+    margin-top: 1.5rem;
+}
+
+.btn{
+    margin-left: 12px;
+}
+
+.listItems{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 1.5rem;
+    padding: 6px;
+
+}
+
+.listItems:hover{
+    background: #ff9797;
+    border-radius: 6px;
+}
+
+.close{
+    color: grey;
+    text-decoration: line-through;
+}

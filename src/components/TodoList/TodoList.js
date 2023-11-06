@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import { Row, Col, Button, FormControl } from 'react-bootstrap';
+import AddTodoClass from '../AddTodo/AddTodo.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSave, faTrash, faEdit, faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
+
+
 
 function TodoList({ todo, setTodo }) {
 
@@ -40,25 +46,29 @@ function TodoList({ todo, setTodo }) {
         <div>
             {
                 todo.map(item => (
-                    <div key={item.id}>
+                    <div key={item.id} className={AddTodoClass.listItems}>
                         {
                             edit === item.id ?
                                 <div>
                                     <input value={value} onChange={(e) => setValue(e.target.value)} />
                                 </div> :
-                                <div> {item.title} </div>
+                                <div className={!item.status ? AddTodoClass.close : ''}> {item.title} </div>
                         }
 
                         {
                             edit === item.id ?
                                 <div>
-                                    <button onClick={() => saveTodo(item.id)}> Save </button>
+                                    <Button onClick={() => saveTodo(item.id)} size="sm"><FontAwesomeIcon icon={faSave} /></Button>
                                 </div> :
 
                                 <div>
-                                    <button onClick={() => deleteTodo(item.id)}> Delete </button>
-                                    <button onClick={() => editTodo(item.id, item.title)}> Edit </button>
-                                    <button onClick={() => statusTodo(item.id)}> open/cancel </button>
+                                    <Button onClick={() => deleteTodo(item.id)} size="sm"> <FontAwesomeIcon icon={faTrash} /> </Button>
+                                    <Button onClick={() => editTodo(item.id, item.title)} className={AddTodoClass.btn} size="sm"> <FontAwesomeIcon icon={faEdit} /> </Button>
+                                    <Button onClick={() => statusTodo(item.id)} className={AddTodoClass.btn} size="sm">
+                                        {
+                                            item.status === false ? <FontAwesomeIcon icon={faLock}  /> : <FontAwesomeIcon icon={faLockOpen} />
+                                        }
+                                    </Button>
                                 </div>
                         }
                     </div>

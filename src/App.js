@@ -3,6 +3,7 @@ import './App.css';
 import AddTodo from './components/AddTodo/AddTodo';
 import Header from './components/Header/Header';
 import TodoList from './components/TodoList/TodoList';
+import { Container } from 'react-bootstrap';
 
 function App() {
 
@@ -23,14 +24,16 @@ function App() {
       status: false
     }
   ])
-  
+
 
   return (
-    <div className="App">
-      <Header />
-      <AddTodo todo={todo} setTodo={setTodo} />
-      <TodoList todo={todo} setTodo={setTodo} />
-    </div>
+    <Container>
+      <div className='App'>
+        <Header />
+        <AddTodo todo={todo} setTodo={setTodo} />
+        <TodoList todo={todo} setTodo={setTodo} />
+      </div>
+    </Container>
   );
 }
 
